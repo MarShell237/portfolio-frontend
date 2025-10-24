@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-[#030609] text-white">
         <HeadSection/>
         <slot/>
         <FooterSection/>

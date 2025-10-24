@@ -1,5 +1,5 @@
 <template>
-    <hi>register</hi>
+    <h1>register</h1>
 </template>
 
 <script lang="ts" setup>
