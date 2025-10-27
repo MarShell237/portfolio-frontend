@@ -5,6 +5,7 @@
 <script lang="ts" setup>
     const config = useRuntimeConfig()
     const { data } = await useFetch(`${config.public.apiUrl}`)
+    console.log(config.public.apiUrl)
 </script>
 
 <style scoped>
