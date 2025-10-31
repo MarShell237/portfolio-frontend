@@ -5,7 +5,7 @@
   "tailwind": {
     "config": "",
     "css": "app/assets/css/main.css",
-    "baseColor": "neutral",
+    "baseColor": "green",
     "cssVariables": true,
     "prefix": ""
   },
