@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col lg:flex-raw gap-2 items-center">
+    <section class="flex flex-col lg:flex-row gap-2 items-center">
         <div>
             <p class="lg:text-sm">👋 Bonjour, je suis</p>
             <h1 class="lg:text-4xl md:text-6xl font-bold text-balance">

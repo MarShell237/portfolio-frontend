@@ -9,6 +9,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
+  --color-background-footer: var(--background-footer);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -101,7 +102,7 @@
     --destructive: hsl(0 84.2% 60.2%);
     --destructive-foreground: hsl(0 0% 98%);
   
-    --border:hsl(240 5.9% 90%);
+    --border: hsl(210, 40%, 4%);
     --input:hsl(240 5.9% 90%);
     --ring:hsl(142.1 76.2% 36.3%);
     --radius: 0.5rem;
@@ -141,7 +142,8 @@
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
 
-      --background:hsl(20 14.3% 4.1%);
+    --background:hsl(210, 50%, 2%);
+    --background-footer:hsl(210, 40%, 4%);
     --foreground:hsl(0 0% 95%);
   
     --card:hsl(24 9.8% 10%);
@@ -165,7 +167,7 @@
     --destructive:hsl(0 62.8% 30.6%);
     --destructive-foreground:hsl(0 85.7% 97.3%);
   
-    --border:hsl(240 3.7% 15.9%);
+    --border:hsl(0, 0%, 100%);
     --input:hsl(240 3.7% 15.9%);
     --ring:hsl(142.4 71.8% 29.2%);
 }

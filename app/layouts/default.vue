@@ -1,5 +1,5 @@
 <template>
-    <div class="dark:bg-[#030609] text-xs">
+    <div class="bg-background text-xs">
         <HeadSection/>
         <div class="lg:mx-24">
             <slot/>

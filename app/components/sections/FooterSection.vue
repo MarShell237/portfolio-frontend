@@ -1,6 +1,6 @@
 <template>
-    <section class="bg-[#060A0E] dark:text-white border-t border-border/10 px-2 lg:px-24 py-8 mt-12">
-        <div class="flex flex-col justify-between py-8">
+    <section class="bg-background-footer dark:text-white border-t border-border/10 px-2 lg:px-24 py-8 mt-12">
+        <div class="flex flex-col lg:flex-row justify-between py-8">
             <div class="">            
                 <NuxtLink to="/">
                     <img src="/og-image.png" alt="logo" class="h-12 w-12"/>
@@ -65,7 +65,5 @@
 </script>
 
 <style scoped>
-    h3{
-        margin-top:25px;
-    }
+
 </style>
