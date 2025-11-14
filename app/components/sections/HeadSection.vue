@@ -1,23 +1,26 @@
 <template>
     <nav class="sticky top-0 z-50 w-full border-b border-border/10 backdrop-blur text-xs">
-        <div class="flex justify-between px-24 py-1">
-            <nuxt-link to="/">
+        <div class="flex justify-between lg:px-24 py-1">
+            <NuxtLink to="/">
                 <img src="/og-image.png" alt="logo" class="h-12 w-12"/>
-            </nuxt-link>
+            </NuxtLink>
             <div class="flex justify-between items-center gap-4">
-                <NuxtLink
-                    v-for="(item, index) in navItems"
-                    :key="index"
-                    :to="item.path"
-                    :class="['transition-colors duration-200 py-3', $route.path === item.path ? 'text-green-600' : 'text-gray-500 hover:text-green-600']"
-                >
-                    {{ item.name }}
-                </NuxtLink>
-                <Button as-child>
-                    <NuxtLink to="/auth/login" class="text-white text-xs">
-                        Connexion
+                <ModeToggle/>
+                <div class="hidden lg:flex justify-between items-center gap-4">
+                    <NuxtLink
+                        v-for="(item, index) in navItems"
+                        :key="index"
+                        :to="item.path"
+                        :class="['transition-colors duration-200 py-3', $route.path === item.path ? 'text-green-600' : 'text-gray-500 hover:text-green-600']"
+                    >
+                        {{ item.name }}
                     </NuxtLink>
-                </Button>
+                    <Button as-child>
+                        <NuxtLink to="/auth/login" class="text-xs">
+                            Connexion
+                        </NuxtLink>
+                    </Button>
+                </div>
             </div>
         </div>
     </nav>
@@ -25,6 +28,7 @@
 
 <script lang="ts" setup>
     import { Button } from "@/components/ui/button"
+    import ModeToggle from "@/components/ModeToggle.vue"
 
     const navItems = [
         { name: 'Accueil', path: '/' },

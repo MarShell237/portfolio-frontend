@@ -1,7 +1,9 @@
 <template>
-    <div class="bg-[#030609] text-white text-xs">
+    <div class="dark:bg-[#030609] text-xs">
         <HeadSection/>
-        <slot/>
+        <div class="lg:mx-24">
+            <slot/>
+        </div>
         <FooterSection/>
     </div>
 </template>

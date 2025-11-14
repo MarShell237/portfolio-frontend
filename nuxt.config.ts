@@ -10,7 +10,14 @@ export default defineNuxtConfig({
         },
     },
     css: ['~/assets/css/main.css'],
-    modules: ['shadcn-nuxt'],
+    modules: [
+        'shadcn-nuxt',
+        // '@nuxtjs/tailwindcss',
+        '@nuxtjs/color-mode'
+    ],
+    colorMode: {
+        classSuffix: ''
+    },
     vite: {
         plugins: [
             tailwindcss(),
