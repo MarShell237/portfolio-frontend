@@ -5,11 +5,11 @@
                 <NuxtLink to="/">
                     <img src="/og-image.png" alt="logo" class="h-12 w-12"/>
                 </NuxtLink>
-                <p class="text-gray-500">Ingénieur logiciel full stack basé au Cameroun 🇨🇲</p>
+                <p class="pb-4 text-gray-500">Ingénieur logiciel full stack basé au Cameroun 🇨🇲</p>
             </div>
             <div>
-                <h3 class="text-sm font-medium pb-2">Navigation</h3>
-                <div class="flex flex-col gap-2 mt-2 text-gray-500">
+                <h3 class="text-sm font-medium">Navigation</h3>
+                <div class="flex flex-col gap-2 my-4 text-gray-500">
                     <NuxtLink
                         v-for="(item, index) in navItems"
                         :key="index"
@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div>
-                <h3 class="text-sm font-medium pb-2">Contact</h3>
-                <div class="flex flex-col gap-2 mt-2">
+                <h3 class="text-sm font-medium">Contact</h3>
+                <div class="flex flex-col gap-2 my-4">
                     <NuxtLink to="mailto:marcelj.djiofack@outlook.com" class="text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
                         Email
                     </NuxtLink>
@@ -32,8 +32,16 @@
                 </div>
             </div>
             <div>
-                <h3 class="text-sm font-medium pb-2 ">Réseaux sociaux</h3>
-                <div class="flex justify-between mt-2 transition-colors duration-700">
+                <h3 class="text-sm font-medium">Basculer le thème</h3>
+                <div class="flex flex-col gap-2 my-4">
+                    <p class="transition-colors duration-200 cursor-pointer text-gray-500 hover:text-green-600" @click="colorMode.preference = 'light'">Clair</p>
+                    <p class="transition-colors duration-200 cursor-pointer text-gray-500 hover:text-green-600" @click="colorMode.preference = 'dark'">Sombre</p>
+                    <p class="transition-colors duration-200 cursor-pointer text-gray-500 hover:text-green-600" @click="colorMode.preference = 'system'">Système</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-sm font-medium">Réseaux sociaux</h3>
+                <div class="flex lg:justify-between gap-2 mt-4 transition-colors duration-700">
                     <NuxtLink to="https://wa.me/237697815095" class="transition-colors duration-200 text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
                         <WhatsappBusinessIcon class="w-6 h-6"/>
                     </NuxtLink>
@@ -54,6 +62,9 @@
     import WhatsappBusinessIcon from '@/components/icons/WhatsappBusinessIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
     import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
+    
+    const colorMode = useColorMode()
+    
     const navItems = [
         { name: 'Accueil', path: '/' },
         { name: 'CV', path: '/cv' },
