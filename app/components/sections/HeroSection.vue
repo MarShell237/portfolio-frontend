@@ -1,8 +1,8 @@
 <template>
     <section class="flex flex-col lg:flex-row gap-2 items-center pt-5">
-        <div class="text-center lg:text-start px-12">
+        <div class="text-center lg:text-start lg:pr-12">
             <p class="lg:text-sm">👋 Bonjour, je suis</p>
-            <h1 class="text-2xl lg:text-4xl md:text-6xl font-bold text-balance">
+            <h1 class="text-2xl md:text-6xl font-bold text-balance">
                 <span class="text-green-700">Marcel J. DJIOFACK</span>
                 <br>
                 <span class="mt-2">alias</span>

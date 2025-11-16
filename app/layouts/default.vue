@@ -1,7 +1,7 @@
 <template>
     <div class="bg-background text-xs">
         <HeadSection/>
-        <div class="lg:mx-24">
+        <div class="mx-3 lg:mx-24">
             <slot/>
         </div>
         <FooterSection/>
