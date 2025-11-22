@@ -46,7 +46,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:image', content: `${process.env.FRONT_URL}/preview.jpg` },
             ],
             link: [
-                { rel: 'icon', type: 'image/png', href: '/og-image.png' },
+                { rel: 'icon', type: 'image/png', href: '/logo.png' },
             ],
             htmlAttrs: {
                 lang: 'fr',

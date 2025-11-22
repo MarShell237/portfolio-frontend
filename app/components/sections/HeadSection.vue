@@ -2,7 +2,7 @@
     <nav class="sticky top-0 z-50 w-full border-b border-border/10 backdrop-blur text-xs">
         <div class="flex justify-between items-center px-4 lg:px-24 py-1">
             <NuxtLink to="/">
-                <img src="/og-image.png" alt="logo" class="h-12 w-12"/>
+                <img src="/logo.png" alt="logo" class="h-12 w-12"/>
             </NuxtLink>
             <div class="hidden lg:flex justify-between items-center gap-4">
                 <ModeToggle/>

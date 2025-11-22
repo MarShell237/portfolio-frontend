@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row justify-between py-8">
             <div class="">            
                 <NuxtLink to="/">
-                    <img src="/og-image.png" alt="logo" class="h-12 w-12"/>
+                    <img src="/logo.png" alt="logo" class="h-12 w-12"/>
                 </NuxtLink>
                 <p class="pb-4 text-gray-500">Ingénieur logiciel full stack basé au Cameroun 🇨🇲</p>
             </div>
@@ -26,7 +26,7 @@
                     <NuxtLink to="mailto:marcelj.djiofack@outlook.com" class="text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
                         Email
                     </NuxtLink>
-                    <NuxtLink to="/contact" class="text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
+                    <NuxtLink to="/contact" class="text-gray-500 hover:text-green-600" rel="noopener noreferrer">
                         Formulaire de contact
                     </NuxtLink>
                 </div>
