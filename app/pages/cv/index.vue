@@ -3,7 +3,7 @@
         <h2 class="text-3xl font-bold text-balance">Curriculum Vitae</h2>
         <p class="lg:text-base text-justify py-6">Marcel J. DJIOFACK - Ingénieur Logiciel Full Stack</p>
         <Button as-child>
-            <a href="/cv/Marcel.pdf" class="text-xs" target="_blank" rel="noopener noreferrer"><Download /> Télécharger CV (PDF)</a>
+            <a href="/Marcel.pdf" class="text-xs" target="_blank" rel="noopener noreferrer"><Download /> Télécharger CV (PDF)</a>
         </Button>
     </section>
     <section class="text-justify lg:px-32">

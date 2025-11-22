@@ -14,7 +14,7 @@
                     <NuxtLink to="/projects" class="text-xs">Voir mes projets</NuxtLink>
                 </Button>
                 <Button as-child variant="outline">
-                    <a href="/cv/Marcel.pdf" class="text-xs" target="_blank" rel="noopener noreferrer"><Download /> Télécharger CV</a>
+                    <a href="/Marcel.pdf" class="text-xs" target="_blank" rel="noopener noreferrer"><Download /> Télécharger CV</a>
                 </Button>
             </div>
             <div class="flex lg:px-0 gap-2 mt-2 transition-colors duration-700">
