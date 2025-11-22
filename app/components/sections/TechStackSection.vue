@@ -36,12 +36,12 @@
     } from '@/components/ui/tooltip'
 
     const technoItems = [
-        { name: "Laravel", image: "assets/images/laravel.svg", link: "https://laravel.com/" , tooltip: "Pour les APIs RESTful"},
-        { name: "Nuxt", image: "assets/images/nuxtjs.svg", link: "https://nuxt.com/", tooltip: "Pour les interfaces web avec un bon SEO et les UIs Mobiles et Desktop via Tauri"},
-        { name: "Tauri", image: "assets/images/tauri.svg", link: "https://tauri.app/", tooltip: "Pour les applications Mobiles et Desktop légères, sécurisées et cross-plateformes"},
-        { name: "Rust", image: "assets/images/rust.svg", link: "https://www.rust-lang.org/", tooltip: "Pour les applications performantes et sécurisées (logique backend des apps Tauri)"},
-        { name: "TypeScript", image: "assets/images/typescript.svg", link: "https://www.typescriptlang.org/", tooltip: "Pour un code JavaScript typé, plus sûr et maintenable"},
-        { name: "Tailwind", image: "assets/images/tailwindcss.svg", link: "https://tailwindcss.com/", tooltip: "Pour un design moderne, réactif et personnalisable"},
+        { name: "Laravel", image: "/laravel.svg", link: "https://laravel.com/" , tooltip: "Pour les APIs RESTful"},
+        { name: "Nuxt", image: "/nuxtjs.svg", link: "https://nuxt.com/", tooltip: "Pour les interfaces web avec un bon SEO et les UIs Mobiles et Desktop via Tauri"},
+        { name: "Tauri", image: "/tauri.svg", link: "https://tauri.app/", tooltip: "Pour les applications Mobiles et Desktop légères, sécurisées et cross-plateformes"},
+        { name: "Rust", image: "/rust.svg", link: "https://www.rust-lang.org/", tooltip: "Pour les applications performantes et sécurisées (logique backend des apps Tauri)"},
+        { name: "TypeScript", image: "/typescript.svg", link: "https://www.typescriptlang.org/", tooltip: "Pour un code JavaScript typé, plus sûr et maintenable"},
+        { name: "Tailwind", image: "/tailwindcss.svg", link: "https://tailwindcss.com/", tooltip: "Pour un design moderne, réactif et personnalisable"},
     ]
 </script>
 
