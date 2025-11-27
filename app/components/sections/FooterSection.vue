@@ -23,9 +23,9 @@
             <div>
                 <h3 class="text-sm font-medium">Contact</h3>
                 <div class="flex flex-col gap-2 my-4">
-                    <NuxtLink to="mailto:marcelj.djiofack@outlook.com" class="text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
+                    <a href="mailto:marcelj.djiofack@outlook.com" class="text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
                         Email
-                    </NuxtLink>
+                    </a>
                     <NuxtLink to="/contact" class="text-gray-500 hover:text-green-600" rel="noopener noreferrer">
                         Formulaire de contact
                     </NuxtLink>
@@ -42,15 +42,15 @@
             <div>
                 <h3 class="text-sm font-medium">Réseaux sociaux</h3>
                 <div class="flex lg:justify-between gap-2 mt-4 transition-colors duration-700">
-                    <NuxtLink to="https://wa.me/237697815095" class="transition-colors duration-200 text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/237697815095" class="transition-colors duration-200 text-gray-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">
                         <WhatsappBusinessIcon class="w-6 h-6"/>
-                    </NuxtLink>
-                    <NuxtLink to="https://github.com/MarShell237" class="transition-colors duration-200 text-gray-500 hover:text-black" target="_blank" rel="noopener noreferrer">
+                    </a>
+                    <a href="https://github.com/MarShell237" class="transition-colors duration-200 text-gray-500 hover:text-black" target="_blank" rel="noopener noreferrer">
                         <GithubIcon class="w-6 h-6"/>
-                    </NuxtLink>
-                    <NuxtLink to="https://www.linkedin.com/in/marcel-j-djiofack-3b936b264/" class="transition-colors duration-200 text-gray-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+                    </a>
+                    <a href="https://www.linkedin.com/in/marcel-j-djiofack-3b936b264/" class="transition-colors duration-200 text-gray-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
                         <LinkedinIcon class="w-6 h-6"/>
-                    </NuxtLink>
+                    </a>
                 </div>
             </div>
         </div>
@@ -70,8 +70,6 @@
         { name: 'CV', path: '/cv' },
         { name: 'Projet', path: '/projects' },
         { name: 'Blog', path: '/posts' },
-        // { name: 'login', path: '/auth/login' },
-        // { name: 'register', path: '/auth/register' },
     ]
 </script>
 
