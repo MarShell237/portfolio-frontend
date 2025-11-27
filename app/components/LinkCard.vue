@@ -1,7 +1,7 @@
 <template>
     <a
         :href="href"
-        class="flex items-center gap-2 py-4 px-4 rounded-lg hover:bg-gray-100"
+        class="flex items-center gap-2 py-4 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         target="_blank"
         rel="noopener noreferrer"
     >

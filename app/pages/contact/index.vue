@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col items-center mt-24">
+    <section class="flex flex-col items-center lg:mt-24">
         <h2 class="text-3xl font-bold text-balance">Contactez-moi</h2>
         <p class="lg:text-base text-center py-6">Une question ? Un projet ? N'hésitez pas à me contacter</p>
     </section>
