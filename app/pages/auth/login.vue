@@ -12,7 +12,7 @@
                     <div class="grid w-full items-center gap-4">
                         <div class="flex flex-col space-y-1.5">
                             <Label for="email">Email</Label>
-                            <Input id="email" type="email" placeholder="atangolegrand@gmail.com" />
+                            <Input id="email" type="email" placeholder="kouamarie@gmail.com" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <div class="flex items-center">

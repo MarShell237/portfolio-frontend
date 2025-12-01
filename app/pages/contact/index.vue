@@ -15,11 +15,11 @@
                 <form class="flex flex-col h-full gap-4">
                     <div class="flex flex-col space-y-1.5">
                         <Label for="text">Nom</Label>
-                        <Input id="text" type="text" placeholder="Votre nom" />
+                        <Input id="text" type="text" placeholder="Aurore Beaureal" />
                     </div>
                     <div class="flex flex-col space-y-1.5">
                         <Label for="email">Email</Label>
-                        <Input id="email" type="email" placeholder="votre@email.com" />
+                        <Input id="email" type="email" placeholder="aurore.beaureal@email.com" />
                     </div>
                     <div class="flex flex-col space-y-1.5 flex-1">
                         <Label for="text">Message</Label>

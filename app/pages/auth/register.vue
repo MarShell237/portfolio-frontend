@@ -12,11 +12,11 @@
                     <div class="grid w-full items-center gap-4">
                         <div class="flex flex-col space-y-1.5">
                             <Label for="fullName">Nom complet</Label>
-                            <Input id="fullName" type="text" placeholder="Kouam Marie" />
+                            <Input id="fullName" type="text" placeholder="Atangana Alexandre" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="email">Email</Label>
-                            <Input id="email" type="email" placeholder="kouamarie@gmail.com" />
+                            <Input id="email" type="email" placeholder="atango.legrand@gmail.com" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="password">Mot de passe</Label>
