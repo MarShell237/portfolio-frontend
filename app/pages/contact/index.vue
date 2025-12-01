@@ -39,19 +39,17 @@
                     <CardTitle class="text-base">Informations de contact</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <template>
-                        <div class="space-y-2">
-                            <LinkCard
-                                v-for="(item, index) in contactInfo"
-                                :key="index"
-                                :href="item.href"
-                                :title="item.title"
-                                :subtitle="item.subtitle"
-                            >
-                                <component :is="item.icon" class="text-primary block" />
-                            </LinkCard>
-                        </div>
-                    </template>
+                    <div class="space-y-2">
+                        <LinkCard
+                            v-for="(item, index) in contactInfo"
+                            :key="index"
+                            :href="item.href"
+                            :title="item.title"
+                            :subtitle="item.subtitle"
+                        >
+                            <component :is="item.icon" class="text-primary block" />
+                        </LinkCard>
+                    </div>
                 </CardContent>
             </Card>
             <Card class="flex-1 bg-background-footer border-border/10">
@@ -59,19 +57,17 @@
                     <CardTitle class="text-base">Réseaux sociaux</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <template>
-                        <div class="space-y-2">
-                            <LinkCard
-                                v-for="(item, index) in socialNetwork"
-                                :key="index"
-                                :href="item.href"
-                                :title="item.title"
-                                :subtitle="item.subtitle"
-                            >
-                                <component :is="item.icon" class="text-primary block w-6 h-6" />
-                            </LinkCard>
-                        </div>
-                    </template>
+                    <div class="space-y-2">
+                        <LinkCard
+                            v-for="(item, index) in socialNetwork"
+                            :key="index"
+                            :href="item.href"
+                            :title="item.title"
+                            :subtitle="item.subtitle"
+                        >
+                            <component :is="item.icon" class="text-primary block w-6 h-6" />
+                        </LinkCard>
+                    </div>
                 </CardContent>
             </Card>
         </div>
