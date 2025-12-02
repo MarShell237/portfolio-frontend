@@ -13,25 +13,12 @@
             </CardHeader>
             <CardContent class="h-full">
                 <form class="flex flex-col h-full gap-4">
-                    <div class="flex flex-col space-y-1.5">
-                        <Label for="text">Nom</Label>
-                        <Input id="text" type="text" placeholder="Aurore Beaureal" />
-                    </div>
-                    <div class="flex flex-col space-y-1.5">
-                        <Label for="email">Email</Label>
-                        <Input id="email" type="email" placeholder="aurore.beaureal@email.com" />
-                    </div>
-                    <div class="flex flex-col space-y-1.5 flex-1">
-                        <Label for="text">Message</Label>
-                        <Textarea placeholder="Votre message..." class="flex-1"/>
-                    </div>
+                    <Textarea required placeholder="Votre message..." class="flex-1"/>                
+                    <Button class="w-full cursor-pointer">
+                        Envoyer le message
+                    </Button>
                 </form>
             </CardContent>
-            <CardFooter class="flex flex-col gap-2">
-                <Button class="w-full">
-                    Envoyer le message
-                </Button>
-            </CardFooter>
         </Card>
         <div class="flex-1 flex flex-col gap-4">
             <Card class="flex-1 bg-background-footer border-border/10">
