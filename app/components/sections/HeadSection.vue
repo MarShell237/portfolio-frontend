@@ -16,7 +16,7 @@
                         {{ item.name }}
                     </NuxtLink>
                     <Button as-child>
-                        <NuxtLink to="/auth/login" class="text-xs">
+                        <NuxtLink to="/login" class="text-xs">
                             Connexion
                         </NuxtLink>
                     </Button>
@@ -62,7 +62,7 @@
                     </NuxtLink>
                     <div class="flex items-center gap-4 py-3">
                         <Button as-child class="flex-1 text-center">
-                            <NuxtLink to="/auth/login" class="text-xs">
+                            <NuxtLink to="/login" class="text-xs">
                                 Connexion
                             </NuxtLink>
                         </Button>

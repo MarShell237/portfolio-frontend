@@ -32,6 +32,17 @@
                 </div>
             </div>
             <div>
+                <h3 class="text-sm font-medium">Legal</h3>
+                <div class="flex flex-col gap-2 my-4">
+                    <NuxtLink to="/policy" class="text-gray-500 hover:text-green-600" rel="noopener noreferrer">
+                        Politique de confidentialité
+                    </NuxtLink>
+                    <NuxtLink to="/condition" class="text-gray-500 hover:text-green-600" rel="noopener noreferrer">
+                        Conditions générales d'utilisation
+                    </NuxtLink>
+                </div>
+            </div>
+            <div>
                 <h3 class="text-sm font-medium">Basculer le thème</h3>
                 <div class="flex flex-col gap-2 my-4">
                     <p class="transition-colors duration-200 cursor-pointer text-gray-500 hover:text-green-600" @click="colorMode.preference = 'light'">Clair</p>

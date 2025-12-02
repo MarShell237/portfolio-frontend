@@ -17,14 +17,18 @@
                         <div class="flex flex-col space-y-1.5">
                             <div class="flex items-center">
                                 <Label for="password" class="flex gap-0"><span>Mot de passe</span><span class="text-red-500">*</span></Label>
-                                <a
-                                    href="#"
+                                <NuxtLink
+                                    to="/password-reset"
                                     class="ml-auto inline-block text-sm underline"
                                 >
                                     Mot de passe oublié?
-                                </a>
+                                </NuxtLink>
                             </div>
                             <Input id="password" required type="password" placeholder="••••••••"/>
+                        </div>
+                        <div class="flex gap-2">
+                            <Checkbox id="remember_me" class="cursor-pointer"/>
+                            <Label for="remember_me" class="cursor-pointer">Se souvenir de moi</Label>
                         </div>
                         <Button class="flex-1 cursor-pointer">
                             Se connecter
@@ -49,7 +53,7 @@
             </CardFooter>
             <CardAction class="w-full text-center text-sm">
                 <span>Pas encore de compte ?</span>
-                <NuxtLink to="/auth/register" class="text-primary">
+                <NuxtLink to="/register" class="text-primary">
                     S'inscrire
                 </NuxtLink>
             </CardAction>
@@ -70,6 +74,7 @@
     } from '@/components/ui/card'
     import { Input } from '@/components/ui/input'
     import { Label } from '@/components/ui/label'
+    import { Checkbox } from '@/components/ui/checkbox'
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
 </script>

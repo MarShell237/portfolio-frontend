@@ -30,6 +30,16 @@
                             <Label for="confirmPassword" class="flex gap-0"><span>Confirmer le mot de passe</span><span class="text-red-500">*</span></Label>
                             <Input id="confirmPassword" required type="password" placeholder="••••••••"/>
                         </div>
+                        <div class="flex gap-2">
+                            <Checkbox id="remember_me" class="cursor-pointer"/>
+                            <Label for="remember_me" class="cursor-pointer">Se souvenir de moi</Label>
+                        </div>
+                        <p class="text-gray-500">
+                            En créant un compte, vous acceptez notre
+                            <NuxtLink to="/policy" class="text-green-500">Politique de confidentialité</NuxtLink>
+                            et nos
+                            <NuxtLink to="/condition" class="text-green-500">Conditions générales d'utilisation</NuxtLink>.
+                        </p>
                         <Button class="flex-1 cursor-pointer">
                             S'inscrire
                         </Button>
@@ -53,7 +63,7 @@
             </CardFooter>
             <CardAction class="w-full text-center text-sm">
                 <span>Déjà un compte ?</span>
-                <NuxtLink to="/auth/login" class="text-primary">
+                <NuxtLink to="/login" class="text-primary">
                     Se connecter
                 </NuxtLink>
             </CardAction>
@@ -74,6 +84,7 @@
     } from '@/components/ui/card'
     import { Input } from '@/components/ui/input'
     import { Label } from '@/components/ui/label'
+    import { Checkbox } from '@/components/ui/checkbox'
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
 </script>
