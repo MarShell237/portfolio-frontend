@@ -8,30 +8,30 @@
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <form>
+                <form @submit.prevent="submit">
                     <div class="grid w-full items-center gap-4">
                         <div class="flex flex-col space-y-1.5">
-                            <Label for="fullName" class="flex gap-0"><span>Nom complet</span><span class="text-red-500">*</span></Label>
-                            <Input id="fullName" required type="text" placeholder="Atangana Alexandre" />
+                            <Label for="name" class="flex gap-0"><span>Nom complet</span><span class="text-red-500">*</span></Label>
+                            <Input id="name" required type="text" v-model="credentials.name" placeholder="Atangana Alexandre" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="email" class="flex gap-0"><span>Email</span><span class="text-red-500">*</span></Label>
-                            <Input id="email" required type="email" placeholder="atango.legrand@gmail.com" />
+                            <Input id="email" required type="email" v-model="credentials.email" placeholder="atango.legrand@gmail.com" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="photo">Photo de profil</Label>
-                            <Input id="photo" type="file" accept="image/*" />
+                            <Input id="photo" type="file" accept="image/*" @change="onFileChange"/>
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="password" class="flex gap-0"><span>Mot de passe</span><span class="text-red-500">*</span></Label>
-                            <Input id="password" required type="password" placeholder="••••••••"/>
+                            <Input id="password" required type="password" v-model="credentials.password" placeholder="••••••••"/>
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <Label for="confirmPassword" class="flex gap-0"><span>Confirmer le mot de passe</span><span class="text-red-500">*</span></Label>
-                            <Input id="confirmPassword" required type="password" placeholder="••••••••"/>
+                            <Input id="confirmPassword" required type="password" v-model="credentials.password_confirmation" placeholder="••••••••"/>
                         </div>
                         <div class="flex gap-2">
-                            <Checkbox id="remember_me" class="cursor-pointer"/>
+                            <Checkbox id="remember_me" v-model="credentials.remember_me" class="cursor-pointer"/>
                             <Label for="remember_me" class="cursor-pointer">Se souvenir de moi</Label>
                         </div>
                         <p class="text-gray-500">
@@ -40,8 +40,8 @@
                             et nos
                             <NuxtLink to="/condition" class="text-green-500">Conditions générales d'utilisation</NuxtLink>.
                         </p>
-                        <Button class="flex-1 cursor-pointer">
-                            S'inscrire
+                        <Button :disabled="isLoading" class="flex-1 cursor-pointer">
+                            <Spinner v-show="isLoading"/>S'inscrire
                         </Button>
                     </div>
                 </form>
@@ -85,8 +85,87 @@
     import { Input } from '@/components/ui/input'
     import { Label } from '@/components/ui/label'
     import { Checkbox } from '@/components/ui/checkbox'
+    import { Spinner } from '@/components/ui/Spinner'
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
+    import { useAuth } from '~/composables/useAuth'
+    import { toast } from 'vue-sonner'
+
+    const { setUser } = useAuth()
+
+    const credentials = ref<{
+        name: string
+        email: string
+        photo: File | null
+        password: string
+        password_confirmation: string
+        remember_me: boolean
+    }>({
+        name: '',
+        email: '',
+        photo: null,
+        password: '',
+        password_confirmation: '',
+        remember_me: false,
+    })
+
+    const onFileChange = (e: Event) => {
+        const target = e.target as HTMLInputElement
+        if (target.files && target.files[0]) {
+            credentials.value.photo = target.files[0]
+        }
+    }
+    const isLoading = ref<boolean>(false)
+
+    async function submit() {
+        try{
+            isLoading.value = true
+
+            await useFetch('/sanctum/csrf-cookie', {
+                baseURL: useRuntimeConfig().public.apiUrl,
+                credentials: 'include',
+                server: false,
+            })
+
+            const formData = new FormData()
+            Object.entries(credentials.value).forEach(([key, value]) => {
+                if (key === 'remember_me') {
+                    formData.append('remember_me', value ? '1' : '0')
+                } else if (value !== null) {
+                    formData.append(key, value as any)
+                }
+            })
+
+            const res:any = await $fetch('/api/v1/users/register-cookie', {
+                baseURL: useRuntimeConfig().public.apiUrl,
+                method: 'POST',
+                body: formData,
+                credentials: 'include',
+                headers: {
+                    'X-XSRF-TOKEN': useCookie('XSRF-TOKEN').value || '',
+                    Accept: 'application/json',
+                },
+            })
+
+            const user = {
+                id: res.data.id,
+                email: res.data.email,
+                name: res.data.name,
+                photo: res.data.photo,
+                is_email_verified: !!res.data.email_verified_at,
+                role: res.data.role,
+            }
+
+            setUser(user, credentials.value.remember_me)
+
+            navigateTo('/')
+        } catch (err: any) {
+            toast.error(err.data?.message || 'Echec de la connexion')
+            isLoading.value = !isLoading.value
+        } finally {
+            isLoading.value = false
+        }
+    }
 </script>
 
 <style scoped>

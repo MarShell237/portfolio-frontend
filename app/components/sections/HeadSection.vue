@@ -15,7 +15,8 @@
                     >
                         {{ item.name }}
                     </NuxtLink>
-                    <Button as-child>
+                    <DropdownProfileMenu v-if="isLoggedIn"/>
+                    <Button v-else as-child>
                         <NuxtLink to="/login" class="text-xs">
                             Connexion
                         </NuxtLink>
@@ -50,7 +51,7 @@
             @enter="enter"
             @leave="leave"
         >
-            <div class="overflow-hidden" v-if="mobileMenuIsOpen">
+            <div class="" v-if="mobileMenuIsOpen">
                 <div class="flex flex-col px-4">
                     <NuxtLink
                         v-for="(item, index) in navItems"
@@ -61,12 +62,12 @@
                         {{ item.name }}
                     </NuxtLink>
                     <div class="flex items-center gap-4 py-3">
-                        <Button as-child class="flex-1 text-center">
+                        <ProfileMenuMobile v-if="isLoggedIn"/>
+                        <Button v-else as-child class="flex-1 text-center">
                             <NuxtLink to="/login" class="text-xs">
                                 Connexion
                             </NuxtLink>
                         </Button>
-                        <ModeToggle/>
                     </div>
                 </div>
             </div>
@@ -79,7 +80,13 @@
     import ModeToggle from "@/components/ModeToggle.vue"
     import { TextAlignJustify } from 'lucide-vue-next';
     import { X } from 'lucide-vue-next';
+    import DropdownProfileMenu from "@/components/DropdownProfileMenu.vue"
+    import ProfileMenuMobile from "@/components/ProfileMenuMobile.vue"
+    import { useAuth } from '@/composables/useAuth'
 
+    const { isLoggedIn, loadUser } = useAuth()
+
+    loadUser()
     const mobileMenuIsOpen = ref(false);
     const navItems = [
         { name: 'Accueil', path: '/' },

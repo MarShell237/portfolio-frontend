@@ -4,15 +4,14 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
     runtimeConfig: {
-        apiSecret: process.env.API_SECRET,
+        // apiSecret: process.env.API_SECRET,
         public: {
-            apiUrl: process.env.API_URL, 
+            apiUrl: process.env.NUXT_PUBLIC_API_URL, 
         },
     },
     css: ['~/assets/css/main.css'],
     modules: [
         'shadcn-nuxt',
-        // '@nuxtjs/tailwindcss',
         '@nuxtjs/color-mode'
     ],
     colorMode: {
@@ -36,14 +35,14 @@ export default defineNuxtConfig({
                 { property: 'og:title', content: 'MarShell – Ingénieur Logiciel' },
                 { property: 'og:description', content: 'Découvrez mes projets, mon CV et ma vision pour la tech africaine.' },
                 { property: 'og:type', content: 'website' },
-                { property: 'og:url', content: process.env.FRONT_URL },
-                { property: 'og:image', content: `${process.env.FRONT_URL}/preview.jpg` },
+                { property: 'og:url', content: process.env.NUXT_PUBLIC_API_URL },
+                { property: 'og:image', content: `${process.env.NUXT_PUBLIC_API_URL}/preview.jpg` },
 
                 // Twitter cards
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:title', content: 'MarShell – Ingénieur Logiciel' },
                 { name: 'twitter:description', content: 'Portfolio de Marcel J. DJIOFACK, Ingénieur logiciel Camerounais.' },
-                { name: 'twitter:image', content: `${process.env.FRONT_URL}/preview.jpg` },
+                { name: 'twitter:image', content: `${process.env.NUXT_PUBLIC_API_URL}/preview.jpg` },
             ],
             link: [
                 { rel: 'icon', type: 'image/png', href: '/logo.png' },

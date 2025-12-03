@@ -8,11 +8,11 @@
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <form>
+                <form @submit.prevent="submit">
                     <div class="grid w-full items-center gap-4">
                         <div class="flex flex-col space-y-1.5">
                             <Label for="email" class="flex gap-0"><span>Email</span><span class="text-red-500">*</span></Label>
-                            <Input id="email" required type="email" placeholder="kouamarie@gmail.com" />
+                            <Input id="email" required type="email" v-model="credentials.email" placeholder="kouamarie@gmail.com" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
                             <div class="flex items-center">
@@ -24,14 +24,14 @@
                                     Mot de passe oublié?
                                 </NuxtLink>
                             </div>
-                            <Input id="password" required type="password" placeholder="••••••••"/>
+                            <Input id="password" required type="password" v-model="credentials.password" placeholder="••••••••"/>
                         </div>
                         <div class="flex gap-2">
-                            <Checkbox id="remember_me" class="cursor-pointer"/>
+                            <Checkbox id="remember_me" class="cursor-pointer" v-model="credentials.remember_me"/>
                             <Label for="remember_me" class="cursor-pointer">Se souvenir de moi</Label>
                         </div>
-                        <Button class="flex-1 cursor-pointer">
-                            Se connecter
+                        <Button :disabled="isLoading" class="flex-1 cursor-pointer">
+                            <Spinner v-show="isLoading"/>Se connecter
                         </Button>
                     </div>
                 </form>
@@ -77,6 +77,60 @@
     import { Checkbox } from '@/components/ui/checkbox'
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
+    import { toast } from 'vue-sonner'
+    import { useAuth } from '~/composables/useAuth'
+    import { Spinner } from '@/components/ui/Spinner'
+
+    const { setUser } = useAuth()
+
+    const credentials = ref({
+        email: '',
+        password: '',
+        remember_me: false,
+    })
+
+    const isLoading = ref<boolean>(false)
+
+    async function submit() {
+        try{
+            isLoading.value = true
+
+            await useFetch('/sanctum/csrf-cookie', {
+                baseURL: useRuntimeConfig().public.apiUrl,
+                credentials: 'include',
+                server: false,
+            })
+
+            const res:any = await $fetch('/api/v1/users/login-cookie', {
+                baseURL: useRuntimeConfig().public.apiUrl,
+                method: 'POST',
+                body: credentials.value,
+                credentials: 'include',
+                headers: {
+                    'X-XSRF-TOKEN': useCookie('XSRF-TOKEN').value || '',
+                    Accept: 'application/json',
+                },
+            })
+
+            const user = {
+                id: res.data.id,
+                email: res.data.email,
+                name: res.data.name,
+                photo: res.data.photo,
+                is_email_verified: !!res.data.email_verified_at,
+                role: res.data.role,
+            };
+
+            setUser(user, credentials.value.remember_me)
+
+            navigateTo('/')
+        } catch (err: any) {
+            toast.error(err.data?.message || 'Echec de la connexion')
+            isLoading.value = !isLoading.value
+        } finally {
+            isLoading.value = false
+        }
+    }
 </script>
 
 <style scoped>
