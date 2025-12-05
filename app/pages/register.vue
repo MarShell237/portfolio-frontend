@@ -91,6 +91,10 @@
     import { useAuth } from '~/composables/useAuth'
     import { toast } from 'vue-sonner'
 
+    definePageMeta({
+        middleware: ['guest']
+    })
+
     const { setUser } = useAuth()
 
     const credentials = ref<{
@@ -159,6 +163,7 @@
             setUser(user, credentials.value.remember_me)
 
             navigateTo('/')
+            toast.success(res.message)
         } catch (err: any) {
             toast.error(err.data?.message || 'Echec de la connexion')
             isLoading.value = !isLoading.value

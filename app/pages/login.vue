@@ -78,8 +78,12 @@
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
     import { toast } from 'vue-sonner'
-    import { useAuth } from '~/composables/useAuth'
+    import { useAuth } from '@/composables/useAuth'
     import { Spinner } from '@/components/ui/Spinner'
+
+    definePageMeta({
+        middleware: ['guest']
+    })
 
     const { setUser } = useAuth()
 
@@ -124,8 +128,9 @@
             setUser(user, credentials.value.remember_me)
 
             navigateTo('/')
+            toast.success(res.message)
         } catch (err: any) {
-            toast.error(err.data?.message || 'Echec de la connexion')
+            toast.error(err.data?.message)
             isLoading.value = !isLoading.value
         } finally {
             isLoading.value = false
