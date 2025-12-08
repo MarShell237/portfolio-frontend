@@ -13,7 +13,7 @@
                 {{ user?.email }}
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem @click="logout" class="hover:bg-green-600 cursor-pointer">
+            <DropdownMenuItem class="hover:bg-green-600 cursor-pointer">
                 <NuxtLink to="/profile" class="flex items-center gap-2">
                     <CircleUserRound /> Profile
                 </NuxtLink>

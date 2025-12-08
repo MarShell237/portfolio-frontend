@@ -40,6 +40,10 @@
     import { Input } from '@/components/ui/input'
     import { Label } from '@/components/ui/label'
     import { MoveLeft} from 'lucide-vue-next'
+
+    definePageMeta({
+        middleware: ['guest']
+    })
 </script>
 
 <style scoped>

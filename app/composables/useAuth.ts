@@ -11,8 +11,13 @@ interface User {
 
 export const user = ref<User | null>(null)
 
+function isClient() {
+    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
+}
+
 export function useAuth() {
     const setUser = (u: User, remember = false) => {
+        if (!isClient()) return null
         user.value = u
         const storage = remember ? localStorage : sessionStorage
         storage.setItem('user', JSON.stringify(u))
@@ -20,6 +25,7 @@ export function useAuth() {
 
     const loadUser = async () => {
         try {
+            if (!isClient()) return null
             const data = localStorage.getItem('user') || sessionStorage.getItem('user')
             if (data) {
                 try {
@@ -52,6 +58,7 @@ export function useAuth() {
     }
 
     const clearUser = () => {
+        if (!isClient()) return null
         user.value = null
         localStorage.removeItem('user')
         sessionStorage.removeItem('user')
