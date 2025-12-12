@@ -85,10 +85,10 @@
     import { Input } from '@/components/ui/input'
     import { Label } from '@/components/ui/label'
     import { Checkbox } from '@/components/ui/checkbox'
-    import { Spinner } from '@/components/ui/Spinner'
+    import { Spinner } from '@/components/ui/spinner'
     import GoogleIcon from '@/components/icons/GoogleIcon.vue'
     import GithubIcon from '@/components/icons/GithubIcon.vue'
-    import { useAuth } from '~/composables/useAuth'
+    import { useAuth } from '@/composables/useAuth'
     import { toast } from 'vue-sonner'
 
     definePageMeta({

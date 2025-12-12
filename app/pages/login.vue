@@ -79,7 +79,7 @@
     import GithubIcon from '@/components/icons/GithubIcon.vue'
     import { toast } from 'vue-sonner'
     import { useAuth } from '@/composables/useAuth'
-    import { Spinner } from '@/components/ui/Spinner'
+    import { Spinner } from '@/components/ui/spinner'
 
     definePageMeta({
         middleware: ['guest']
