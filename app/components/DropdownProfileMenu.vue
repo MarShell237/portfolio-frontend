@@ -7,12 +7,12 @@
             </Avatar>
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="end" class="bg-background-footer border-border/10">
+        <DropdownMenuContent align="end" class="bg-background-footer border-border/10 w-84">
             <DropdownMenuLabel class="flex flex-col">
                 <span class="text-xs text-gray-500">Connecté en tant que</span> 
                 {{ user?.email }}
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
+            <div class="border-t border-border/10 w-full"></div>
             <DropdownMenuItem class="hover:bg-green-600 cursor-pointer">
                 <NuxtLink to="/profile" class="flex items-center gap-2">
                     <CircleUserRound /> Profile
