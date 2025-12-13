@@ -38,8 +38,9 @@
                             <Label for="message" class="flex gap-0"><span>Message</span><span class="text-red-500">*</span></Label>
                             <Textarea required @focus="handleFocus" v-model="contactData.message" id="message" placeholder="Votre message..." class="flex-1 min-h-32"/> 
                         </div>               
-                    <Button :disabled="!isLoggedIn || isLoading" class="w-full cursor-pointer">
-                        <Spinner v-show="isLoading"/>Envoyer le message
+                    <Button :disabled="isButtonDisabled" class="w-full cursor-pointer">
+                        <Spinner v-show="isLoading"/>    
+                        {{ isLoading ? 'Envoi en cours…' : 'Envoyer le message' }}
                     </Button>
                 </form>
             </CardContent>
@@ -130,18 +131,26 @@
     ]
 
     const isLoading = ref(false)
-
+    const fileKey = ref(0)
+    const mounted = ref(false)
     const contactData = ref<{
-        object: string,
-        attachment: File | null,
-        message: string,
-    }>({
-        object: '',
-        attachment: null,
-        message: '',
+                                object: string,
+                                attachment: File | null,
+                                message: string,
+                        }>({
+                                object: '',
+                                attachment: null,
+                                message: '',
+                        })
+
+    const isButtonDisabled = computed(() => {
+        if (!mounted.value) return false
+        return !isLoggedIn.value || isLoading.value
     })
 
-    const fileKey = ref(0)
+    onMounted(() => {
+        mounted.value = true
+    })
 
     const onFileChange = (e: Event) => {
         const target = e.target as HTMLInputElement
