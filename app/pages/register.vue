@@ -15,6 +15,10 @@
                             <Input id="name" required type="text" v-model="credentials.name" placeholder="Atangana Alexandre" />
                         </div>
                         <div class="flex flex-col space-y-1.5">
+                            <Label for="phone" class="flex gap-0"><span>Numéro de téléphone (WhatsApp recommandé)</span><span class="text-red-500">*</span></Label>
+                            <Input id="phone" required type="phone" v-model="credentials.phone" placeholder="+237699999999" />
+                        </div>
+                        <div class="flex flex-col space-y-1.5">
                             <Label for="email" class="flex gap-0"><span>Email</span><span class="text-red-500">*</span></Label>
                             <Input id="email" required type="email" v-model="credentials.email" placeholder="atango.legrand@gmail.com" />
                         </div>
@@ -99,6 +103,7 @@
 
     const credentials = ref<{
         name: string
+        phone: string
         email: string
         photo: File | null
         password: string
@@ -106,6 +111,7 @@
         remember_me: boolean
     }>({
         name: '',
+        phone: '',
         email: '',
         photo: null,
         password: '',
@@ -153,6 +159,7 @@
 
             const user = {
                 id: res.data.id,
+                phone: res.data.phone,
                 email: res.data.email,
                 name: res.data.name,
                 photo: res.data.photo,

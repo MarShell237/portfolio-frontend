@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 
 interface User {
     id: number
+    phone: string
     email: string
     name: string
     photo?: string
