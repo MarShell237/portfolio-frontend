@@ -21,16 +21,17 @@
                                     <Tooltip>
                                         <TooltipTrigger as-child>
                                             <Label for="attachment" @click="handleFocus" class="border border-border/10 rounded-lg p-2 h-full cursor-pointer">
-                                                <Check v-if="contactData.attachment" class="w-4 h-4 text-primary"/>
+                                                <X v-if="contactData.attachment" class="w-4 h-4 text-red-500"/>
                                                 <Paperclip v-else class="w-4 h-4 text-gray-500"/>
                                             </Label>
                                         </TooltipTrigger>
                                         <TooltipContent>
-                                            <p>Joignez un fichier si nécessaire</p>
+                                            <p v-if="contactData.attachment">Supprimez le fichier joint</p>
+                                            <p v-else>Joignez un fichier si nécessaire</p>
                                         </TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>
-                                <Input :key="fileKey" @change="onFileChange" id="attachment" type="file" class="hidden"/>
+                                <Input :key="fileKey" @click="resetAttachment" @change="onFileChange" id="attachment" type="file" class="hidden"/>
                             </div>
                         </div>
                         <div class="flex flex-col gap-2 flex-1">
@@ -113,7 +114,7 @@
     import { toast } from 'vue-sonner'
     import { useAuth } from '@/composables/useAuth'
     import { Paperclip } from 'lucide-vue-next';
-    import { Check } from 'lucide-vue-next';
+    import { X } from 'lucide-vue-next';
 
     const { isLoggedIn } = useAuth()
 
@@ -156,6 +157,20 @@
         }
     }
 
+    const resetForm = () => {
+        fileKey.value++
+        contactData.value.attachment = null
+        contactData.value.object = ''
+        contactData.value.message = ''
+    }
+
+    const resetAttachment = () => {
+        if(contactData.value.attachment){
+            contactData.value.attachment = null
+            fileKey.value++
+        }
+    }
+
     async function handleSubmit(){
         try{
             isLoading.value = true
@@ -180,13 +195,7 @@
                 },
             })
 
-            contactData.value = {
-                object: '',
-                attachment: null,
-                message: '',
-            }
-            fileKey.value++
-
+            resetForm()
             toast.success(res.message)
         } catch (err: any) {
             toast.error(err.data?.message)
