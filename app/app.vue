@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout>
             <Toaster 
-                :position="updateToasterPosition()" 
+                :position="toasterPosition" 
                 :closeButton="true" 
                 closeButtonPosition="top-right" 
                 richColors 
@@ -18,7 +18,9 @@
     import { Toaster } from '@/components/ui/sonner'
     type Position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
 
-    function updateToasterPosition(): Position {
-        return window.innerWidth < 640 ? 'top-center' : 'bottom-right'
-    }
+    const toasterPosition = ref<Position>('bottom-right')
+
+    onMounted(() => {
+        toasterPosition.value = window.innerWidth < 640 ? 'top-center' : 'bottom-right'
+    })
 </script>
